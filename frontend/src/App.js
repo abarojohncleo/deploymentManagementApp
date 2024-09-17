@@ -1,22 +1,16 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Login from "./components/login";
-import Home from "./pages/home";
-import Navigation from './components/navigation';
-import Logout from './components/logout';
+import { RouterProvider} from 'react-router-dom';
+import Navigation from './components/Navigation';
+import router from './route';
 
 function App() {  
   
   return (
-    <div className="bg-blue-800">
-      <BrowserRouter>
-      {/* <Navigation /> */}
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/logout" element={<Logout/>}/>
-        </Routes>
-      </BrowserRouter>
+    <div>
+      <Navigation />
+      <div className="app">
+        <RouterProvider router={router}/>
+      </div>
     </div>
   ) 
 }

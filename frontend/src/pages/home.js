@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Navigation from "../components/navigation";
+/* React */
+import React, {useEffect} from 'react'
+
+/* Material UI */
+import { Box, Typography } from '@mui/material';
 
 const Home = () => {
 
@@ -12,10 +15,11 @@ const Home = () => {
 
   return (
     <div>
-      <Navigation />
+      {/* <Navigation /> */}
       <div>Home</div>
     </div>
   )
 };
 
 export default Home;
+
