@@ -8,6 +8,7 @@ import EngineersIcon from "./EngineersIcon";
 import EngineerRequestIcon from "./EngineerRequestIcon";
 import QuotationsIcon from "./QuotationsIcon";
 import ProjectsIcon from "./ProjectsIcon";
+import LogoutIcon from "./LogoutIcon";
 
 export {
   AdminPageIcon,
@@ -19,5 +20,6 @@ export {
   EngineersIcon,
   EngineerRequestIcon,
   QuotationsIcon,
-  ProjectsIcon
+  ProjectsIcon,
+  LogoutIcon
 }
