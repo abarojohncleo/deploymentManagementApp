@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from engineers.urls import router as engineers_routes
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include('authentication.urls'))
+    path('auth/', include('authentication.urls')),
+    path('engineers/', include(engineers_routes.urls)),
 ]

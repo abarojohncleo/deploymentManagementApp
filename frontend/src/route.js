@@ -1,7 +1,8 @@
 /* React */
-import React, {lazy, Suspense} from 'react';
+import React from 'react';
 import {
   Route,
+  Navigate,
   createBrowserRouter,
   createRoutesFromElements
 } from 'react-router-dom';
@@ -16,10 +17,12 @@ import EngineerRequests from './pages/EngineerRequests';
 import Quotations from './pages/Quotations';
 import Projects from './pages/Projects';
 import PrivateRoutes from './components/PrivateRoutes';
+import NotFound from './pages/NotFound';
 
 const routes = createBrowserRouter(createRoutesFromElements(
 
 <Route>
+  <Route path="*" element={<Navigate to="/login" />} />
   <Route element={<PrivateRoutes />} > 
     <Route element={<SidebarLayout />} >
       <Route path="/home" element={<Home/>}/>

@@ -19,6 +19,6 @@ class Engineers(models.Model):
   last_name = models.CharField(max_length = 100)
   address = models.CharField(max_length = 100)
   email = models.EmailField(max_length = 100, unique=True)
-  contact_num = models.CharField(null=False, blank=False, unique=True)
+  contact_num = models.CharField(max_length=100, null=False, blank=False, unique=True)
   engineer_type_id = models.ForeignKey(EngineerType, on_delete=models.CASCADE)
   salary = models.FloatField(null=True, blank=True, default=None)

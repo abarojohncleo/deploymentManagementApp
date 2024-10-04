@@ -9,7 +9,7 @@ class BusinessPartnersContactPersonnel(models.Model):
   last_name = models.CharField(max_length = 100)
   address = models.CharField(max_length = 100)
   email = models.EmailField(max_length = 100, unique=True)
-  contact_num = models.CharField(null=False, blank=False, unique=True)
+  contact_num = models.CharField(max_length= 100, null=False, blank=False, unique=True)
 
 class BusinessPartners(models.Model):
   created_at = models.DateTimeField(auto_now_add=timezone.now)
