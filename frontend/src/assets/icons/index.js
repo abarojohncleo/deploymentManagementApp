@@ -9,6 +9,14 @@ import EngineerRequestIcon from "./EngineerRequestIcon";
 import QuotationsIcon from "./QuotationsIcon";
 import ProjectsIcon from "./ProjectsIcon";
 import LogoutIcon from "./LogoutIcon";
+import FilterIcon from "./FilterIcon";
+import SortIcon from "./SortIcon";
+import DeleteIcon from "./DeleteIcon";
+import SearchIcon from "./SearchIcon";
+import EditIcon from "./EditIcon";
+import FemaleIcon from "./FemaleIcon";
+import MaleIcon from "./MaleIcon";
+import ViewIcon from "./ViewIcon";
 
 export {
   AdminPageIcon,
@@ -21,5 +29,13 @@ export {
   EngineerRequestIcon,
   QuotationsIcon,
   ProjectsIcon,
-  LogoutIcon
+  LogoutIcon,
+  FilterIcon,
+  DeleteIcon,
+  SearchIcon,
+  SortIcon,
+  EditIcon,
+  MaleIcon,
+  FemaleIcon,
+  ViewIcon
 }

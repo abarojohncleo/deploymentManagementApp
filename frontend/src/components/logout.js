@@ -29,10 +29,12 @@ const Logout = () => {
   }
 
   return (
-    <div onClick={handleLogout} className='flex justify-end p-5 cursor-pointer'>
-      <IconButton >
-        <LogoutIcon width='20px'/>
-      </IconButton>
+    <div className='flex justify-end p-5'>
+      <div className="cursor-pointer">
+        <IconButton onClick={handleLogout} >
+          <LogoutIcon width='20px'/>
+        </IconButton>
+      </div>
     </div>
   )
 }

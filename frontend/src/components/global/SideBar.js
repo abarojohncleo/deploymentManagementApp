@@ -94,7 +94,6 @@ const Sidebar = () =>  {
   useEffect(() => {
     const url = routeLocation.pathname
     const extractedPart = url.split('/').slice(0, 3).join('/');
-    console.log('extracted', extractedPart)
     setLocation(extractedPart)
   }, [routeLocation.pathname]);
 
