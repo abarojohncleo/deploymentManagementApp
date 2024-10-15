@@ -1,29 +1,47 @@
 import React, { useEffect, useState } from "react";
 
-
 /* API */
-import { getEngineers, getEngineersType } from "../api/engineers/engineers";
+import { getEngineers } from "../api/engineers/engineers";
 
-import PageTitle from "../components/global/PageTitle";
-import PageContent from "../components/global/PageContent";
+/* Application */
+import {
+  PageContent,
+  PageTitle,
+  Modal
+} from '../components/global'
+import { engineer_types } from "../api/constants";
+import {
+  AddEngineer,
+} from '../components/engineers';
+import { getPositionName } from "../utils/utils";
 
+/* Icons */
 import {
   SortIcon,
   FilterIcon,
   SearchIcon,
   DeleteIcon,
-  EditIcon,
   FemaleIcon,
   MaleIcon,
   ViewIcon
 } from '../assets/icons';
 
-import { Card, CardHeader, CardContent, Grid } from "@mui/material";
+/* MUI */
+import { 
+  Card, 
+  CardContent, 
+  Grid,
+} from "@mui/material";
 
 const Engineers = () => {
   const [engineers, setEngineers] = useState([]);
   const [sorted, setSorted] = useState(false);
-  const [filter, setFilter] = useState(false)
+  const [filter, setFilter] = useState(false);
+  const [addEngineer, setAddEngineer] = useState(false);
+
+  const handleAddEngineer = () => {
+    setAddEngineer(true);
+  };
 
   const handleFilterItem = () => {
     setFilter(!filter)
@@ -34,7 +52,6 @@ const Engineers = () => {
   }
 
   useEffect(() => {
-    console.log('fetching engineers')
     const fetchEngineers = async () => {
       let response = await getEngineers();
       if(response) {
@@ -42,14 +59,14 @@ const Engineers = () => {
       }
     };
     fetchEngineers();
-  },[])
+  },[]);
 
   return (
     <div>
       <PageTitle title={'Engineers'}/>
       <PageContent>
         <div className="flex justify-between">
-          <button className="text-sm bg-primaryBlue-900 text-white-900 p-2 rounded-md hover:bg-primaryBlue-400">
+          <button className="text-sm bg-primaryBlue-900 text-white-900 p-2 rounded-md hover:bg-primaryBlue-400" onClick={handleAddEngineer}>
             Add Engineer
           </button>
           <div className="flex justify-between items-center">
@@ -86,12 +103,12 @@ const Engineers = () => {
                   </button>
                 </div>
                 <div className="flex justify-center items-center">
-                  <div className="border p-5 rounded-full mx-5">
-                    <MaleIcon width="60px" color="#15136C"/>
+                  <div className="border-2 border-primaryBlue-100 p-5 rounded-full mx-5">
+                    {engineer.gender === "M" ? (<MaleIcon width="60px" color="#15136C"/>) : (<FemaleIcon width="60px" color="#15136C"/>)}
                   </div>
                   <div className="block">
                     <p>{engineer.first_name} {engineer.middle_name} {engineer.last_name}</p>
-                    <p>Software Engineer</p>
+                    <p>{getPositionName(engineer.engineer_type.position)}</p>
                   </div>
                 </div>
                 <div className="w-full mt-5 text-center">
@@ -103,6 +120,16 @@ const Engineers = () => {
           </Grid>
         ))}
         </Grid>
+        {addEngineer && (
+          <Modal open={addEngineer} 
+            handleClose={() => setAddEngineer(false)} 
+            close={() => setAddEngineer(false)}
+            width={500}>
+            <AddEngineer 
+              cancel = {() => setAddEngineer(false)}
+            />
+          </Modal>
+        )}
       </PageContent>
     </div>
   )

@@ -1,6 +1,6 @@
 import React from "react";
 
-const MaleIcon = ({color="#000", width="32px", height="auto", showTooltip=false, tooltipText="", tooltipPlacement="" }) => {
+const MaleIcon = ({color="#000", width="32px", height="auto", showTooltip=false, tooltipText="", tooltipPlacement="bottom" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

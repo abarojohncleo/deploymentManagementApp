@@ -1,7 +1,7 @@
 import React from "react";
 import { Tooltip } from '@mui/material';
 
-const ViewIcon = ({color="#000", width="32px", height="auto", showTooltip=false, tooltipText="", tooltipPlacement="" }) => {
+const ViewIcon = ({color="#000", width="32px", height="auto", showTooltip=false, tooltipText="", tooltipPlacement="bottom" }) => {
   return (
     <Tooltip title={showTooltip ? tooltipText : ""} placement={tooltipPlacement} >
       <svg
